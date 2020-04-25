@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="p.vasylprokudin.listonic.presentation.view.list.listener.ItemClickedListener"/>
+        <import type="p.vasylprokudin.listonic.data.db.entities.RowItem"/>
+        <import type="android.view.View"/>
+        <import type="java.util.List"/>
+
+        <variable
+            name="rows"
+            type="List&lt;RowItem&gt;"/>
+
+        <variable
+            name="listener"
+            type="ItemClickedListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.view.ListActivity">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvItems"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
+            android:rowsList="@{rows}"
+            android:itemClickListener="@{listener}"
+            android:visibility="@{rows.empty ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="10"
+            tools:listitem="@layout/row_item"
+            tools:visibility="visible" />
+
+        <include
+            android:id="@+id/emptyView"
+            layout="@layout/layout_empty_view"
+            android:visibility="@{rows.empty ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:elevation="2dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:backgroundTint="@color/colorAccent"
+            app:tint="@android:color/white"
+            android:src="@drawable/ic_add"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/margin_normal"/>
+
+        <FrameLayout
+            android:id="@+id/details_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

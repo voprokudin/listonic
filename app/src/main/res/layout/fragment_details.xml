@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="p.vasylprokudin.listonic.data.db.entities.RowItem"/>
+
+        <variable
+            name="rowDetail"
+            type="RowItem"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:id="@+id/tvCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_small"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:text="@{Integer.toString(rowDetail.counter)}" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCounter"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_small"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:text="@{rowDetail.name}" />
+
+        <TextView
+            android:id="@+id/tvClock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_small"
+            style="@style/TextAppearance.AppCompat.Medium"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

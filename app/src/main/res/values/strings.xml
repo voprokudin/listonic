@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Listonic</string>
+
+    <string name="empty_list">No items to show…</string>
+</resources>

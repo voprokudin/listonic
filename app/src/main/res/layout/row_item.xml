@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <import type="p.vasylprokudin.listonic.data.db.entities.RowItem"/>
+
+        <variable
+            name="rowItem"
+            type="RowItem"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundColor="@{rowItem.color}"
+        android:padding="@dimen/margin_normal">
+
+        <TextView
+            android:id="@+id/tvRowTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/icDelete"
+            android:maxLines="1"
+            android:text="@{rowItem.name}"
+            android:textColor="@color/colorText"
+            android:ellipsize="end"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            tools:text="Name Name Name Name Name Name Name Name Name" />
+
+        <ImageView
+            android:id="@+id/icDelete"
+            android:layout_width="@dimen/ic_delete_size"
+            android:layout_height="@dimen/ic_delete_size"
+            android:src="@drawable/ic_delete"
+            android:layout_marginEnd="@dimen/margin_small"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
